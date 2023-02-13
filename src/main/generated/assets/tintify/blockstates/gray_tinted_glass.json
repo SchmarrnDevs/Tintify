@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "tintify:block/gray_tinted_glass"
+    }
+  }
+}

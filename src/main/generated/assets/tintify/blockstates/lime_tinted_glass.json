@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "tintify:block/lime_tinted_glass"
+    }
+  }
+}
