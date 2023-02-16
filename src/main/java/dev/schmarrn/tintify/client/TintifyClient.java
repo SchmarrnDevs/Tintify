@@ -16,7 +16,7 @@ public class TintifyClient implements ClientModInitializer {
 		BlockRenderLayerMap.put(RenderLayer.getTranslucent(), TINTED_BLOCKS.values().toArray(new Block[0]));
 
 		TINTED_BLOCKS.forEach((dyeColor, block) -> {
-			ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> dyeColor.getColor(), block);
+			ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> dyeColor.getSignColor(), block);
 			ColorProviderRegistry.ITEM.register((stack, index) -> dyeColor.getSignColor(), block);
 		});
 	}
