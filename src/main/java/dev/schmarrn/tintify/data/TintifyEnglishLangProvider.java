@@ -4,6 +4,8 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 
+import java.util.Arrays;
+
 import static dev.schmarrn.tintify.common.TintedBlocks.TINTED_BLOCKS;
 
 public class TintifyEnglishLangProvider extends FabricLanguageProvider {
@@ -13,7 +15,8 @@ public class TintifyEnglishLangProvider extends FabricLanguageProvider {
 	@Override
 	public void generateTranslations(TranslationBuilder translationBuilder) {
 		TINTED_BLOCKS.forEach((dyeColor, block) -> {
-			translationBuilder.add(block, (dyeColor.getName().substring(0,1).toUpperCase()+dyeColor.getName().substring(1) + " Tinted Glass"));
-		});
+			translationBuilder.add(block, (TintifyLangFormatter.capitalizedWords(dyeColor.getName()) + " Tinted Glass"));
+
+			});
 	}
 }
