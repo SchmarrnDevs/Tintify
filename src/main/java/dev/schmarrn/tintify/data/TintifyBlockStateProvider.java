@@ -1,29 +1,21 @@
 package dev.schmarrn.tintify.data;
 
 import dev.schmarrn.tintify.common.TintedBlocks;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.TintedGlassBlock;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.model.BlockStateModelGenerator;
 import net.minecraft.data.client.model.ModelIds;
 import net.minecraft.data.client.model.Models;
 import net.minecraft.data.client.model.Texture;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
-import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings;
-import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
+
 
 public class TintifyBlockStateProvider extends FabricModelProvider {
 
-	public TintifyBlockStateProvider(FabricDataOutput output) {
-		super(output);
+	public TintifyBlockStateProvider(FabricDataGenerator generator) {
+		super(generator);
 	}
 
 	@Override

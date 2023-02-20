@@ -1,16 +1,15 @@
 package dev.schmarrn.tintify.common;
 
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.TintedGlassBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroups;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings;
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings;
 
@@ -27,18 +26,18 @@ public class TintedBlocks {
 			tempMap.put(dyeColor, block);
 
 			Identifier id = new Identifier("tintify", dyeColor.getName() + "_tinted_glass");
-			Registry.register(Registries.BLOCK, id, block);
+			Registry.register(Registry.BLOCK, id, block);
 
-			Item item = new BlockItem(block, new QuiltItemSettings());
-			Registry.register(Registries.ITEM, id, item);
+			Item item = new BlockItem(block, new QuiltItemSettings().group(ItemGroup.BUILDING_BLOCKS).group(ItemGroup.DECORATIONS));
+			Registry.register(Registry.ITEM, id, item);
 
-			ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(listener -> {
-				listener.addAfter(Blocks.TINTED_GLASS, item);
+			/* ItemGroupExtensions.modifyEntriesEvent(ItemGroup.BUILDING_BLOCKS).register(content -> {
+				content.(Blocks.TINTED_GLASS, item);
 			});
 
-			ItemGroupEvents.modifyEntriesEvent(ItemGroups.COLORED_BLOCKS).register(listener -> {
+			ItemGroupEvents.modifyEntriesEvent(ItemGroup.DECORATIONS).register(listener -> {
 				listener.addAfter(Blocks.TINTED_GLASS, item);
-			});
+			});*/
 
 		}
 		return tempMap;
